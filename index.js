@@ -43,3 +43,7 @@ function debounceCall(cb) {
 }
 
 //------------------------------------------- Events -------------------------------------------//
+
+let grandParent = document.querySelector('.grandParent');
+let parent = document.querySelector('.parent');
+let child = document.querySelector('.child');
