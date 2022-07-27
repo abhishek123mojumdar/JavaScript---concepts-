@@ -47,7 +47,7 @@ body {
 .child {
   width: 100px;
   height: 100px;
-  background-color: rgb(12, 230, 23);
+  background-color: rgb(12, 125, 230);
   position: absolute;
   transform: translate(50px, 50px);
   border: 2px solid rgb(230, 197, 12);
