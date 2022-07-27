@@ -7,7 +7,8 @@ function showInHTML(string) {
   showInputString.innerHTML = string;
 }
 function showInHTMLDebounce(counter, string) {
-  showInputStringDebounce.innerHTML = counter + string;
+  console.log(counter);
+  showInputStringDebounce.innerHTML = string;
 }
 let throttleEventCall = throttleCall(4000, showInHTML);
 let debounceEventCall = debounceCall(showInHTMLDebounce);
@@ -56,23 +57,18 @@ let loading = document.getElementById('loading');
 loading.style.display = 'none';
 
 grandParent.addEventListener('click', (e) => {
-  console.log(e);
   console.log('GrandParent');
-  gpt.innerHTML = 'GrandParent &#8593;';
   checkEvent(e);
 });
 
 parent.addEventListener('click', (e) => {
-  console.log(e);
+  //  e.stopPropagation();  if stopPropagation is added then the event does not go any further
   console.log('parent');
-  pt.innerHTML = 'Parent &#8593;';
   checkEvent(e);
 });
 
 child.addEventListener('click', (e) => {
-  console.log(e);
   console.log('Child');
-  cd.innerHTML = 'Child &#8593;';
   checkEvent(e);
 });
 
@@ -91,6 +87,9 @@ function checkEvent(e) {
   loading.style.display = 'inline';
   setTimeout(() => {
     loading.style.display = 'none';
+    cd.innerHTML = 'Child &#8593;';
+    pt.innerHTML = 'Parent &#8593;';
+    gpt.innerHTML = 'GrandParent &#8593;';
     if (e.target.className === 'child') {
       cd.classList.add('active');
       pt.classList.add('active');
@@ -103,3 +102,5 @@ function checkEvent(e) {
     }
   }, 1000);
 }
+
+// Event bubbling as a concept says that the event which originates from a html element will bubble out to its parent element and will keep on bubbling till it has reached the document . In the above example we can see that when the child box is clicked the event bubbles from child --> parent --> grandparent
