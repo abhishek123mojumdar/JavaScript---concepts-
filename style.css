@@ -32,6 +32,9 @@ body {
   position: relative;
   border: 2px solid saddlebrown;
   border-radius: 10px;
+  cursor: pointer;
+  color: aliceblue;
+  font-weight: 900;
 }
 
 .parent {
@@ -52,4 +55,76 @@ body {
   transform: translate(50px, 50px);
   border: 2px solid rgb(230, 197, 12);
   border-radius: 10px;
+}
+
+.event-container {
+  display: flex;
+  justify-content: space-evenly;
+  width: 40vw;
+}
+
+.event-text {
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gpt {
+  opacity: 0;
+  transition: all 1s ease-in;
+}
+
+.gpt.active {
+  opacity: 1;
+  transform: scale(1.7);
+  color: saddlebrown;
+  font-weight: 900;
+}
+
+.pt {
+  opacity: 0;
+  transition: all 1s ease-in;
+}
+
+.pt.active {
+  opacity: 1;
+  transform: scale(1.5);
+  color: rgb(230, 197, 12);
+  font-weight: 600;
+}
+
+.cd {
+  opacity: 0;
+  transition: all 1s ease-in;
+}
+
+.cd.active {
+  opacity: 1;
+  transform: scale(1.2);
+  color: rgb(230, 197, 12);
+  font-weight: 900;
+}
+
+#reset {
+  padding: 0.5rem;
+  margin: 1rem;
+  width: 5rem;
+  border-radius: 10px;
+  border: 2px solid rgb(0, 89, 255);
+  background-color: aliceblue;
+  cursor: pointer;
+}
+
+.path {
+  opacity: 0;
+  transition: all 1s ease-in;
+}
+
+.path.active {
+  opacity: 1;
+  transform: scale(1.2);
+  color: rgb(230, 197, 12);
+  font-weight: 900;
 }

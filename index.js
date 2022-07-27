@@ -47,3 +47,59 @@ function debounceCall(cb) {
 let grandParent = document.querySelector('.grandParent');
 let parent = document.querySelector('.parent');
 let child = document.querySelector('.child');
+let gpt = document.querySelector('.gpt');
+let pt = document.querySelector('.pt');
+let cd = document.querySelector('.cd');
+let reset = document.getElementById('reset');
+let loading = document.getElementById('loading');
+
+loading.style.display = 'none';
+
+grandParent.addEventListener('click', (e) => {
+  console.log(e);
+  console.log('GrandParent');
+  gpt.innerHTML = 'GrandParent &#8593;';
+  checkEvent(e);
+});
+
+parent.addEventListener('click', (e) => {
+  console.log(e);
+  console.log('parent');
+  pt.innerHTML = 'Parent &#8593;';
+  checkEvent(e);
+});
+
+child.addEventListener('click', (e) => {
+  console.log(e);
+  console.log('Child');
+  cd.innerHTML = 'Child &#8593;';
+  checkEvent(e);
+});
+
+reset.addEventListener('click', () => {
+  resetEvent();
+});
+
+function resetEvent() {
+  gpt.classList.remove('active');
+  pt.classList.remove('active');
+  cd.classList.remove('active');
+}
+
+function checkEvent(e) {
+  resetEvent();
+  loading.style.display = 'inline';
+  setTimeout(() => {
+    loading.style.display = 'none';
+    if (e.target.className === 'child') {
+      cd.classList.add('active');
+      pt.classList.add('active');
+      gpt.classList.add('active');
+    } else if (e.target.className === 'parent') {
+      pt.classList.add('active');
+      gpt.classList.add('active');
+    } else if (e.target.className === 'grandParent') {
+      gpt.classList.add('active');
+    }
+  }, 1000);
+}

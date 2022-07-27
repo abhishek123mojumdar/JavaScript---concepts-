@@ -21,9 +21,21 @@
 <p id="showInputDebounce"></p>
 
 <p>Events</p>
-
-<div class="grandParent">
-  <div class="parent">
-    <div class="child"></div>
+<p>Events Bubbling</p>
+<div class="event-container">
+  <div class="grandParent">
+    GrandParent
+    <div class="parent">
+      Parent
+      <div class="child">Child</div>
+    </div>
+  </div>
+  <div class="event-text">
+    <button id="reset">Reset</button>
+    <p>Direction of Event</p>
+    <span id="loading">Getting direction ...</span>
+    <p class="gpt">Grand-Parent</p>
+    <p class="pt">Parent</p>
+    <p class="cd">Child</p>
   </div>
 </div>
